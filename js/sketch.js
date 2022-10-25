@@ -24,53 +24,32 @@ function onWebMidiEnabled() {
   // Add a listener on all the MIDI inputs that are detected
   WebMidi.inputs.forEach(input => {
 
-	if ((input.name == '3- MIDISPORT Uno / 1x1 In') 
-		|| (input.name == 'Line 6 PODxt Live')){
+	if (input.name.includes('MIDISPORT') || input.name.includes('PODxt Live')){
 		// When a "note on" is received on MIDI channel 1, generate a random color start
 		input.channels[1].addListener("programchange", function(p) {
 		  //fill(random(255), random(255), random(255));
 		  //circle(random(width), random(height), 100);
 		  if (!isNaN(p.value)){
-			  console.log('program X:' + patchValue);
-			  var patchValue;
-			  var zoomLimit = 50;
-			  if (input.name == '3- MIDISPORT Uno / 1x1 In') {
-				  patchValue = p.value -1; //offset midi floor pod plus
-				  zoomLimit = 49;
-			  }
-			  else{
-				  patchValue = p.value;				   
-			  }
-				while (patchValue > zoomLimit){
-					patchValue -= zoomLimit;
-				}			  
-			  SendPatch(patchValue);
+			console.log('program X:' + patchValue);
+			var patchValue;
+			var zoomLimit = 49;
+			if (input.name.includes('MIDISPORT')) {
+			  patchValue = p.value -1; //offset midi floor pod plus				  
+			}
+			else{
+			  patchValue = p.value;				   
+			}
+			while (patchValue > zoomLimit){
+				patchValue -= zoomLimit;
+			}			  
+			SendPatch(patchValue);
 		  }
 		  else{
 			  console.log('program Error');
 		  }
 		});
 	}
-	
-	if (input.name == 'ZOOM G Series'){
-		// When a "note on" is received on MIDI channel 1, generate a random color start
-		input.channels[1].addListener("programchange", function(p) {
-		  //fill(random(255), random(255), random(255));
-		  //circle(random(width), random(height), 100);
-		  if (!isNaN(p.value)){
-			  console.log('program X:' + patchValue);
-			  var patchValue = p.value -1;
-			  var zoomLimit = 44;
-			  while (patchValue > zoomLimit){
-					patchValue -= zoomLimit;
-				}
-				SendPatch(patchValue);
-		  }
-		  else{
-			  console.log('program Error');
-		  }
-		});
-	}
+		
   });
 
 }
