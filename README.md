@@ -1,4 +1,4 @@
-#Test: Line6 Floor Pod Plus (via midisport) to change patches in Zoom's MS50G / Ms70CDR.
+#Test: Line6 Floor Pod Plus (via midisport) and Pod XT Live to change patches in Zoom's MS50G / Ms70CDR.
 
 Giant Shoulders:
 
