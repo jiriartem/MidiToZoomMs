@@ -24,7 +24,7 @@ function onWebMidiEnabled() {
   // Add a listener on all the MIDI inputs that are detected
   WebMidi.inputs.forEach(input => {
 
-	if (input.name.includes('MIDISPORT') || input.name.includes('PODxt Live')){
+	if (input.name.includes('MIDISPORT') || input.name.includes('PODxt Live') || input.name.includes('Line 6 POD X3 Live')){
 		// When a "note on" is received on MIDI channel 1, generate a random color start
 		input.channels[1].addListener("programchange", function(p) {
 		  //fill(random(255), random(255), random(255));
