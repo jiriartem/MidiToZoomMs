@@ -30,12 +30,13 @@ function setup() {
 		else{
 			console.log("Looks like there is no MIDI output device. Check if your PC is connected.");
 		}
+	}
 
 	function onWebMidiEnabled() {
 		  
 		  // Print available MIDI outputs
 		  for(let i = 0; i < WebMidi.outputs.length; i++){
-			console.log(WebMidi.outputs[i].name);
+			console.log('Outputs: ' + WebMidi.outputs[i].name);
 		  }
 		  
 		  // From the list on the console, pick an output name:
@@ -43,4 +44,3 @@ function setup() {
 		  midiOutput = WebMidi.getOutputByName("MIDISPORT");
 
 	}
-}
