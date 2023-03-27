@@ -160,6 +160,8 @@ function MidiIf(ma){
         currentpatch=ev.data[1];
         DispPatch();
         SetPatchFocus(1);
+		//Send to other device via sketch js
+		zoomProgramChanged(currentpatch);
       }
     }
     if(midirecv.indexOf(this.sysexhead+"31")==0){
