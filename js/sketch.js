@@ -9,10 +9,6 @@ function setup() {
 
 }
 
-function draw() {
-
-}
-
 function onWebMidiEnabled() {
 
   // Check if at least one MIDI input is detected. If not, display warning and quit.
@@ -59,25 +55,14 @@ function onWebMidiEnabled() {
 			
 		}
   });
-
-	WebMidi.enable(function (err) {
-	  if (err) {
-		console.log("WebMidi could not be enabled.", err);
-	  }
 	  
-	  // Print available MIDI outputs
-	  for(let i = 0; i < WebMidi.outputs.length; i++){
-		console.log(WebMidi.outputs[i].name);
-	  }
-	  
-	  // From the list on the console, pick an output name:
-	  // midiOutput = WebMidi.getOutputByName("IAC Driver IAC Bus 1");
-	  midiOutput = WebMidi.getOutputByName("MIDISPORT");
-	  
-
-	});
-	
-	
+  // Print available MIDI outputs
+  for(let i = 0; i < WebMidi.outputs.length; i++){
+	console.log('Outputs sketch:' + WebMidi.outputs[i].name);
+  }
   
-}
+  // From the list on the console, pick an output name:
+  // midiOutput = WebMidi.getOutputByName("IAC Driver IAC Bus 1");
+  midiOutput = WebMidi.getOutputByName("MIDISPORT");
+	
 }
