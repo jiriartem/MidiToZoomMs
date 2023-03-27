@@ -31,16 +31,3 @@ function setup() {
 			console.log("Looks like there is no MIDI output device. Check if your PC is connected.");
 		}
 	}
-
-	function onWebMidiEnabled() {
-		  
-		  // Print available MIDI outputs
-		  for(let i = 0; i < WebMidi.outputs.length; i++){
-			console.log('Outputs: ' + WebMidi.outputs[i].name);
-		  }
-		  
-		  // From the list on the console, pick an output name:
-		  // midiOutput = WebMidi.getOutputByName("IAC Driver IAC Bus 1");
-		  midiOutput = WebMidi.getOutputByName("MIDISPORT");
-
-	}
