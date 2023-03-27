@@ -1,4 +1,5 @@
 #Test: Line6 Floor Pod Plus, Pod X3 Live (via midisport) and Pod XT Live to change patches in Zoom's MS50G / Ms70CDR.
+UPDATED: Now you can send program changes out FROM Zoom devices too.
 
 Giant Shoulders:
 
